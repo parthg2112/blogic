@@ -34,7 +34,8 @@ export default function Home() {
       {/* Insights Section */}
       <section className="my-16">
         <div className="text-center mb-12">
-            <span className="text-orange-500 font-semibold">Latest</span>
+            {/* Updated color */}
+            <span className="text-brand-blue font-semibold">Latest</span>
             <h1 className="text-4xl md:text-5xl font-bold text-white mt-2">Discover our Insights</h1>
             <p className="text-gray-400 mt-4">Stay up-to-date with our latest blog posts.</p>
         </div>
@@ -62,7 +63,8 @@ export default function Home() {
                     <p className="text-gray-400 mb-8">{tipPost.description}</p>
                 </div>
                 <div className="flex flex-col items-start">
-                    <button className="text-orange-500 font-semibold mb-6">Discover Now →</button>
+                    {/* Updated color */}
+                    <button className="text-brand-blue font-semibold mb-6">Discover Now →</button>
                     <div className="flex items-center text-gray-400 text-sm">
                         <span>{tipPost.author}</span>
                         <span className="mx-2">•</span>

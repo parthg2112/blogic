@@ -20,9 +20,44 @@
 }
 
 body {
-  background: var(--background);
+  background-color: #111111;
   color: #E0E0E0;
   font-family: var(--font-space-grotesk);
+}
+
+/* This new container will hold our layered dot background */
+.dot-background-container {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  
+  /* This is the BRIGHTER dot layer that is revealed by the mask */
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.5) 1px, transparent 1.5px);
+  background-size: 30px 30px;
+}
+
+.dot-background-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+
+  /* UPDATED: Increased the opacity of the dimmer dots from 0.04 to 0.1 for better visibility. */
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1.5px);
+  background-size: 30px 30px;
+  
+  /* The mask creates a smooth, transparent "hole" where the mouse is, revealing the bright dots underneath */
+  mask-image: radial-gradient(
+    circle 400px at var(--mouse-x, -999px) var(--mouse-y, -999px),
+    transparent 0%,
+    transparent 30%, /* The fade starts here */
+    black 100%
+  );
+  -webkit-mask-image: radial-gradient(
+    circle 400px at var(--mouse-x, -999px) var(--mouse-y, -999px),
+    transparent 0%,
+    transparent 30%, /* The fade starts here */
+    black 100%
+  );
 }
 
 .nav-link {
@@ -34,7 +69,7 @@ body {
 }
 
 .btn-primary {
-  @apply bg-orange-500 text-white font-semibold py-2 px-5 rounded-lg hover:bg-orange-600 transition-all duration-300;
+  @apply bg-blue-400 text-white font-semibold py-2 px-5 rounded-lg hover:bg-blue-500 transition-all duration-300;
 }
 
 .card-bg {

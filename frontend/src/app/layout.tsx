@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import DotBackground from "./components/DotBackground"; // Import the new component
 
 // Font configuration
 const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
@@ -20,7 +21,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <body>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* The interactive background component */}
+        <DotBackground />
+        
+        {/* Your existing layout structure */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Navbar />
           <main>{children}</main>
         </div>
